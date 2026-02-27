@@ -1,2 +1,4 @@
 date,avg_compound,positive_count,negative_count,neutral_count,total_articles,daily_sentiment
-2026-02-22,0.2636553191489362,56,21,17,94,Positive
+2026-02-24,0.12098947368421052,9,6,4,19,Positive
+2026-02-25,-0.01290000000000001,3,4,2,9,Neutral
+2026-02-26,0.009144444444444452,6,6,6,18,Neutral
