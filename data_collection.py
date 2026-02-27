@@ -15,7 +15,7 @@ def fetch_news(ticker, company_name, days=7):
     start = end - timedelta(days=days)
 
     articles = newsapi.get_everything(
-        q=f"{ticker} OR {company_name}",
+        q=f'"{ticker}" OR "Apple Inc" OR "Apple stock" OR "Tim Cook"',
         from_param=start.strftime('%Y-%m-%d'),
         to=end.strftime('%Y-%m-%d'),
         language="en",
