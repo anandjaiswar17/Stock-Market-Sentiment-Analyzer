@@ -9,6 +9,19 @@ nltk.download('punkt', quiet=True)
 
 STOPWORDS = set(stopwords.words('english'))
 
+RELEVANT_KEYWORDS = [
+    "apple inc", "aapl", "iphone", "macbook", "tim cook",
+    "apple stock", "apple shares", "apple earnings",
+    "apple revenue", "apple market", "ios", "apple watch",
+    "app store", "apple vision", "apple silicon", "airpods"
+]
+
+def is_relevant(text):
+    if not isinstance(text, str):
+        return False
+    text = text.lower()
+    return any(keyword in text for keyword in RELEVANT_KEYWORDS)
+
 def remove_urls(text):
     return re.sub(r'http\S+|www\S+', '', text)
 
@@ -54,6 +67,12 @@ def preprocess_news(ticker):
 
     df = pd.read_csv(path)
     print(f"Loaded {len(df)} articles")
+
+    before = len(df)
+    df = df[df["full_text"].apply(is_relevant)]
+    after = len(df)
+    print(f"Removed {before - after} irrelevant articles")
+    print(f"Relevant articles remaining: {after}")
 
     # clean full_text for FinBERT
     df["cleaned_text"] = df["full_text"].apply(clean_text)
