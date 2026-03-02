@@ -72,4 +72,4 @@ def analyze_sentiment(ticker):
 
 if __name__ == "__main__":
     TICKER = "AAPL"
-    analyze_sentiment(TICKER)
+    analyze_sentiment(TICKER) 

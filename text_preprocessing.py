@@ -99,4 +99,4 @@ def preprocess_news(ticker):
 
 if __name__ == "__main__":
     TICKER = "AAPL"
-    preprocess_news(TICKER)
+    preprocess_news(TICKER) 
